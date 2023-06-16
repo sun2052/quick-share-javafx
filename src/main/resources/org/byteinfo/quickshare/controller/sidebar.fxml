@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.byteinfo.quickshare.controller.ContactController">
+	<children>
+		<HBox alignment="CENTER" fillHeight="false" minHeight="50.0" spacing="5.0" style="-fx-background-color: #e9e9e9;">
+			<children>
+				<ImageView fitHeight="24.0" fitWidth="24.0">
+					<image>
+						<Image url="@images/search_48dp.png" />
+					</image>
+				</ImageView>
+				<TextField fx:id="searchBox" promptText="Search..." HBox.hgrow="ALWAYS" />
+			</children>
+			<padding>
+				<Insets left="15.0" right="15.0" />
+			</padding>
+		</HBox>
+		<ScrollPane fitToWidth="true" styleClass="edge-to-edge" VBox.vgrow="ALWAYS">
+			<content>
+				<VBox fx:id="container">
+				</VBox>
+			</content>
+		</ScrollPane>
+	</children>
+</VBox>

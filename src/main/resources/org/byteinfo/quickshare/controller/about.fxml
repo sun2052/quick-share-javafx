@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="5.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.byteinfo.quickshare.controller.AboutController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label fx:id="titleLabel">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label text="An open source AirDrop alternative built with JavaFX." />
+      <Hyperlink fx:id="linkButton" onAction="#openLink" text="https://github.com/sun2052/quick-share-javafx" />
+      <Label text="Local Addresses">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="addressesLabel" />
+      <Label text="Device Info">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <TextArea fx:id="deviceInfoArea" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+   </children>
+</VBox>

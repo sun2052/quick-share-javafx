@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.byteinfo.quickshare.controller.SidebarItemController">
+	<children>
+		<ImageView fx:id="iconImage" fitHeight="34.0" fitWidth="34.0" />
+		<VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+			<children>
+				<Label fx:id="titleLabel" styleClass="title-label" />
+				<Label fx:id="subtitleLabel" />
+			</children>
+		</VBox>
+		<VBox alignment="CENTER">
+			<children>
+				<Label fx:id="messageTimeLabel" alignment="CENTER" styleClass="message-time" />
+				<Label fx:id="pendingCountLabel" alignment="CENTER" styleClass="pending-count" visible="false" />
+			</children>
+		</VBox>
+	</children>
+	<padding>
+		<Insets left="10.0" right="10.0" />
+	</padding>
+</HBox>

@@ -1,0 +1,83 @@
+.root {
+	-fx-font-smoothing-type: lcd;
+}
+
+Button {
+	-fx-cursor: hand;
+	-fx-background-insets: 0;
+}
+
+Hyperlink {
+	-fx-text-fill: #f44336;
+}
+
+Hyperlink:focused {
+	-fx-border-color: #f44336;
+}
+
+#navbar {
+	-fx-background-color: #f44336;
+}
+
+#navbar Button {
+	-fx-background-color: transparent;
+	-fx-background-radius: 0;
+}
+
+#navbar Button:hover {
+	-fx-background-color: rgba(0, 0, 0, 0.25);
+}
+
+#navbar Button.active,
+#navbar Button:pressed {
+	-fx-background-color: rgba(0, 0, 0, 0.3);
+}
+
+#sidebar {
+	-fx-border-width: 0 1 0 0;
+	-fx-border-color: #ccc;
+}
+
+#sidebar ScrollPane HBox:hover {
+	-fx-cursor: hand;
+	-fx-background-color: rgba(0, 0, 0, 0.25);
+}
+
+#sidebar ScrollPane HBox.active,
+#sidebar ScrollPane HBox:pressed {
+	-fx-background-color: rgba(0, 0, 0, 0.3);
+}
+
+.title-label {
+	-fx-font-weight: bold;
+}
+
+.message-time {
+	-fx-font-size: 10;
+	-fx-min-width: 40;
+}
+
+.pending-count {
+	-fx-font-size: 10;
+	-fx-text-fill: #fff;
+	-fx-background-color: #f44336;
+	-fx-background-radius: 100%;
+	-fx-pref-width: 16;
+	-fx-pref-height: 16;
+}
+
+#upload,
+#send {
+	-fx-background-color: #f44336;
+	-fx-background-radius: 100%;
+}
+
+#upload:hover,
+#send:hover {
+	-fx-background-color: #f00;
+}
+
+#upload:pressed,
+#send:pressed {
+	-fx-background-color: #f44336;
+}

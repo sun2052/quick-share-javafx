@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<HBox prefHeight="600.0" prefWidth="900.0" stylesheets="@styles/base.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.byteinfo.quickshare.controller.MainController">
+   <children>
+      <VBox id="navbar" maxWidth="50.0" minWidth="50.0">
+         <children>
+            <Button fx:id="contactButton" onAction="#showContacts" prefHeight="50.0" prefWidth="50.0" styleClass="active">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@images/baseline_group_white_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="View Contacts" />
+               </tooltip>
+            </Button>
+            <Button fx:id="chatButton" onAction="#showChats" prefHeight="50.0" prefWidth="50.0">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@images/baseline_chat_white_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="View Chats" />
+               </tooltip>
+            </Button>
+            <Pane VBox.vgrow="ALWAYS" />
+            <Button fx:id="refreshButton" onAction="#refreshContacts" prefHeight="50.0" prefWidth="50.0">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@images/baseline_wifi_tethering_white_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Refresh Contacts" />
+               </tooltip>
+            </Button>
+            <Button fx:id="aboutButton" onAction="#showAbout" prefHeight="50.0" prefWidth="50.0">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@images/outline_info_white_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="About" />
+               </tooltip>
+            </Button>
+         </children>
+      </VBox>
+      <VBox id="sidebar" fx:id="sidebarContainer" maxWidth="300.0" minWidth="300.0">
+         <children>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER" fillHeight="false" minHeight="50.0" spacing="5.0" style="-fx-background-color: #e9e9e9;">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="24.0">
+                           <image>
+                              <Image url="@images/search_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="searchBox" promptText="Search..." HBox.hgrow="ALWAYS" />
+                     </children>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" styleClass="edge-to-edge" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="container">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0">
+                                 <children>
+                                    <ImageView fx:id="iconImage" fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@images/computer_48dp.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="titleLabel" styleClass="title-label" text="DESKTOP-7BEQU2O" />
+                                          <Label fx:id="subtitleLabel" text="How are you today?" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label fx:id="messageTimeLabel" alignment="CENTER" styleClass="message-time" text="12:34:56" />
+                                          <Label fx:id="pendingCountLabel" alignment="CENTER" styleClass="pending-count" text="15" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0">
+                                 <children>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@images/smartphone_48dp.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="title-label" text="Xiaomi M2012K11C" />
+                                          <Label text="How are you today?" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label styleClass="message-time" text="12:34:56" />
+                                          <Label alignment="CENTER" styleClass="pending-count" text="99" visible="false" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox id="content" fx:id="contentContainer" HBox.hgrow="ALWAYS">
+         <children>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_LEFT" minHeight="50.0" prefHeight="50.0" spacing="10.0" style="-fx-background-color: #e9e9e9;">
+                     <children>
+                        <ImageView fx:id="chatIconImage" fitHeight="34.0" fitWidth="34.0">
+                           <image>
+                              <Image url="@images/smartphone_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="chatTitleLabel" styleClass="title-label" text="Xiaomi M2012K11C" />
+                              <Label fx:id="chatSubtitleLabel" text="192.168.1.123" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fx:id="messagePane" fitToWidth="true" styleClass="edge-to-edge" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="messageContainer" spacing="10.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label fx:id="headerLabel" text="🡽 2023-12-31 12:34:56" />
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Hyperlink fx:id="copyButton" onAction="#copyContent" text="Copy" />
+                                       </children>
+                                    </HBox>
+                                    <TextFlow style="-fx-background-color: limegreen;">
+                                       <children>
+                                          <Text fx:id="contentText" text="Hello World" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label fx:id="headerLabel1" text="🡿 2023-12-31 12:34:56" />
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Hyperlink fx:id="saveButton" onAction="#saveContent" text="Save" />
+                                          <Hyperlink fx:id="copyButton11" onAction="#copyContent" text="Copy" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-background-color: limegreen;">
+                                       <children>
+                                          <TextFlow HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Text fx:id="nameText" text="quick-share-javafx-1.0-SNAPSHOT.jar&#10;" />
+                                                <Text fx:id="sizeText" text="Size: 12.4 MB&#10;" />
+                                                <Text fx:id="modifiedText" text="Modified: 2023-12-31 12:34:56&#10;" />
+                                                <Text fx:id="statusText" text="Status: Pending" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </TextFlow>
+                                          <ImageView fx:id="contentIcon" fitHeight="48.0" fitWidth="48.0">
+                                             <image>
+                                                <Image url="@images/download_48dp.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <padding>
+                                          <Insets right="12.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="🡿 2023-12-31 12:34:56" />
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Hyperlink onAction="#copyContent" text="Copy" />
+                                       </children>
+                                    </HBox>
+                                    <TextFlow style="-fx-background-color: limegreen;">
+                                       <children>
+                                          <Text text="How are you today?" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TextFlow>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <HBox alignment="CENTER" minHeight="120.0" prefHeight="120.0" spacing="10.0" style="-fx-background-color: #e9e9e9; -fx-border-color: #ccc; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <Button id="upload" fx:id="uploadButton" minHeight="50.0" minWidth="50.0" onAction="#sendFile">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="28.0">
+                                 <image>
+                                    <Image url="@images/baseline_upload_white_48dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Send File" />
+                           </tooltip>
+                        </Button>
+                        <TextArea fx:id="messageBox" promptText="Type message here..." HBox.hgrow="ALWAYS" />
+                        <Button id="send" fx:id="sendButton" minHeight="50.0" minWidth="50.0" onAction="#sendMessage">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="28.0">
+                                 <image>
+                                    <Image url="@images/baseline_send_white_48dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <tooltip>
+                              <Tooltip text="Send Message" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
