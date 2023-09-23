@@ -15,8 +15,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 		<javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
-		<maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
-		<javafx.version>20.0.1</javafx.version>
+		<maven-shade-plugin.version>3.5.0</maven-shade-plugin.version>
+		<javafx.version>21</javafx.version>
 		<jackson.version>2.15.2</jackson.version>
 		<main.class>org.byteinfo.quickshare.Launcher</main.class>
 	</properties>
@@ -48,10 +48,26 @@
 				<configuration>
 					<createDependencyReducedPom>false</createDependencyReducedPom>
 					<transformers>
+						<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
 						<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-							<mainClass>${main.class}</mainClass>
+							<Main-Class>${main.class}</Main-Class>
 						</transformer>
 					</transformers>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>module-info.class</exclude>
+								<exclude>META-INF/versions/9/module-info.class</exclude>
+								<exclude>META-INF/MANIFEST.MF</exclude>
+								<exclude>META-INF/maven/**</exclude>
+								<exclude>META-INF/*CHANGES*</exclude>
+								<exclude>META-INF/*NOTICE*</exclude>
+								<exclude>META-INF/*LICENSE*</exclude>
+								<exclude>META-INF/*README*</exclude>
+							</excludes>
+						</filter>
+					</filters>
 				</configuration>
 				<executions>
 					<execution>
